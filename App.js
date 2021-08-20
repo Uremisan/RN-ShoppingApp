@@ -3,12 +3,14 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import AddToCartScreen from './src/screens/AddToCartScreen';
 import OnlineShoppingScreen from './src/screens/OnlineShoppingScreen';
+import PaymentSuccessfulScreen from './src/screens/PaymentSuccessfulScreen';
 
 export default function App() {
   return (
     <ScrollView>
       {/* <OnlineShoppingScreen /> */}
-      <AddToCartScreen />
+      {/* <AddToCartScreen /> */}
+      <PaymentSuccessfulScreen />
       <StatusBar style="auto" />
     </ScrollView>
   );
