@@ -20,13 +20,14 @@ export default function OnlineShoppingScreen() {
       </TouchableOpacity>
 
       <View style = {styles.navContainer}>
-            <Text style = {styles.round}></Text>
-            <Text style = {styles.roundDeep}></Text>
-            <Text style = {styles.rounds}></Text>
+            <View style = {styles.btnstart}></View>
+            <View style = {styles.lgbtn}></View>
+            <View style = {styles.btnend}></View>
       </View>
+
       <TouchableOpacity style = {styles.navSkip}>
             <Text style = {styles.navPrevious}>Skip</Text>
-          </TouchableOpacity>
+      </TouchableOpacity>
 
     </ScrollView>
   )
@@ -69,7 +70,7 @@ const styles = StyleSheet.create ({
     fontWeight: 'bold'
   },
 
-  round: {
+  btnstart: {
     borderRadius: 50,
     backgroundColor: '#4d24db',
     width: 15,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create ({
     marginRight: 30,
   },
 
-  roundDeep: {
+  lgbtn: {
     backgroundColor: '#D3D3D3',
     width: 10,
     height: 8,
@@ -89,7 +90,7 @@ const styles = StyleSheet.create ({
     borderRadius: 30,
   },
 
-  rounds: {
+  btnend: {
     backgroundColor: '#D3D3D3',
     width: 10,
     height: 8,

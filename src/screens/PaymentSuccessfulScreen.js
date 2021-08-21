@@ -22,10 +22,10 @@ export default function PaymentSuccessfulScreen() {
             <Text style = {styles.navPrevious}>Previous</Text>
       </TouchableOpacity>
 
-      <View style = {styles.navContainer}>
-           <Text style = {styles.roundDeep}></Text>
-           <Text style = {styles.rounds}></Text>
-           <Text style = {styles.round}></Text>
+      <View style = {styles.navContain}>
+           <View style = {styles.btnstart}></View>
+           <View style = {styles.btnmid}></View>
+           <View style = {styles.btnend}></View>
       </View>
 
 
@@ -83,7 +83,7 @@ const styles = StyleSheet.create ({
     marginLeft: 20,
     marginTop: -5,
   },
-  roundDeep: {
+  btnstart: {
     backgroundColor: '#D3D3D3',
     width: 10,
     height: 8,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create ({
     marginTop: -20,
     borderRadius: 30,
   },
-  rounds: {
+  btnmid: {
     backgroundColor: '#D3D3D3',
     width: 10,
     height: 8,
@@ -101,17 +101,19 @@ const styles = StyleSheet.create ({
     marginTop: -8,
     borderRadius: 30, 
   },
-  round: {
+  btnend: {
     borderRadius: 50,
     backgroundColor: '#4d24db',
-    width: 15,
+    width: 17,
     marginTop: -8,
     alignSelf: "center",
     height: 8,
     marginRight: -22,
+    
   },
-  navContainer: {
+  navContain: {
     marginTop: 10,
+    borderRadius: 30,
   },
-  
+
 })
