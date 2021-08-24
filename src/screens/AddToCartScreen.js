@@ -1,71 +1,106 @@
 import React from 'react'
 import { View, ScrollView, TouchableOpacity, StyleSheet, Image, Text } from 'react-native'
 
-export default function AddToCartScreen() {
+const AddToCartScreen = ({ navigation}) => {
+  const handleOnPress = () => {
+    navigation.navigate ('paymentsuccessful')
+  };
+
+  const handleOnlineShop = () => {
+    navigation.navigate ('onlineshop')
+  };
+
+
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.lgrcontainer}>
+        <View style={styles.txthdr}>
+         <Text style={styles.text}>ADD TO CART</Text>
 
-      <Text style={styles.text}>ADD TO CART</Text>
+          <Text style={styles.lorem}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery
+          </Text>
+        </View>
 
-      <Text style={styles.lorem}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery
-      </Text>
 
-      <Image style={styles.image} source ={require('../../assets/2.png')}>
-      </Image>
+        <View style={styles.imgcontainer}>
+          <Image style={styles.image} source ={require('../../assets/2.png')}>
+          </Image>
+        </View>
 
-      <TouchableOpacity style={styles.btn}>
-        <Text style={styles.btnText}>Next</Text>
-      </TouchableOpacity>
+        <View styles={styles.touch}>
+          <TouchableOpacity onPress={handleOnPress}  style={styles.btn}>
+          <Text style={styles.btnText}>Next</Text>
+          </TouchableOpacity>
+        </View>
 
-      <TouchableOpacity style = {styles.navPrev}>
-            <Text style = {styles.navPrevious}>Previous</Text>
-      </TouchableOpacity>
+        <View style={styles.skiploader}>
+          <TouchableOpacity
+            onPress={handleOnlineShop}
+            style={styles.navprevious}
+          >
+            <Text style={styles.PrevText}>Previous</Text>
+          </TouchableOpacity>
 
-      <View style = {styles.navContainer}>
+
+          <View style = {styles.navContainer}>
+            <View style = {styles.lgbtn}></View>
             <View style = {styles.btnstart}></View>
-            <View style = {styles.btnlarge}></View>
             <View style = {styles.btnend}></View>
-      </View>
-      <TouchableOpacity style = {styles.navSkip}>
+          </View>
+
+          <TouchableOpacity onPress={handleOnPress} style = {styles.navSkip}>
             <Text style = {styles.navSkips}>Skip</Text>
-      </TouchableOpacity>
-
-
+          </TouchableOpacity>
+      </View>
+    </View>
     </ScrollView>
   )
-}
+};
+
+export default AddToCartScreen;
 
 const styles = StyleSheet.create ({
   container: {
-    marginTop: 120,
+    flex: 1,
+  },
+  lgrcontainer: {
+    flex: 1,
+    paddingVertical: 18,
+    paddingHorizontal: 20,
+  },
+  txthdr: {
+    marginTop: 5,
   },
   text: {
     fontSize: 27,
     fontWeight: "bold",
-    marginHorizontal: 30,
+    marginBottom: 8,
   },
   lorem: {
-    marginTop: 12,
     fontSize: 19,
-    marginHorizontal:30,
+  },
+  imgcontainer:{
+    alignItems:'center'
   },
   image: {
     marginTop: 30,
-    width: 370,
-    height: 300,
-    alignSelf: 'flex-start'
+    width: 350,
+    height: 300,   
   },
+  touch:{
+    alignItems:'center',
+  },
+
   btn: {
-    width:160,
+    width:165,
     height: 55,
     backgroundColor: '#4d24db',
     borderRadius: 30,
-    marginTop: 60,
+    marginTop: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal:110,
-    marginBottom: 30,
+    alignSelf: "center",
   },
 
   btnText: {
@@ -74,64 +109,51 @@ const styles = StyleSheet.create ({
     fontWeight: 'bold'
   },
 
-  btnlarge: {
-    borderRadius: 50,
-    backgroundColor: '#4d24db',
-    width: 20,
-    marginTop: -8,
-    alignSelf: "center",
-    height: 8,
-    marginRight: 3,
+  skiploader:{
+    marginTop: 70,
+    flexDirection: "row",
+    justifyContent:"space-between",
+    alignItems:"center",
   },
 
+  PrevText:{
+    fontWeight: "bold",
+    color: "grey"
+  },
+
+  navContainer:{
+    flexDirection:"row",
+    alignItems:"center",
+    width: 47,
+    justifyContent: 'space-between'
+  },
+  lgbtn: {
+    width: 9,
+    height: 7,
+    backgroundColor: "#D3D3D3",
+    borderRadius: 100,
+  },
   btnstart: {
-    backgroundColor: '#D3D3D3',
-    width: 10,
     height: 8,
-    alignSelf: 'center',
-    marginRight: 40,
-    marginTop: -20,
-    borderRadius: 30,
+    width: 20,
+    backgroundColor: '#480ca8',
+    borderRadius: 50,
   },
-
   btnend: {
-    backgroundColor: '#D3D3D3',
-    width: 10,
-    height: 8,
-    alignSelf: 'center',
-    marginLeft: 32,
-    marginTop: -8,
-    borderRadius: 30, 
+    width: 9,
+    height: 7,
+    backgroundColor: "#D3D3D3",
+    borderRadius: 100, 
   },
-  navContainer: {
-    marginTop: 10,
-  },
+ 
 
 
-  navSkip: {
-    alignSelf: "flex-end",
-    marginRight: 20,
-    marginTop: 77,
-  },
+
 
   navSkips: {
-    alignSelf: "flex-end",
-    marginTop: -100,
-    fontWeight: 'bold',
-    color: "#808080",
-    fontSize: 14,
+    fontWeight: "bold",
+    color: "grey"
   },
 
-  navPrevious:{
-    alignSelf:'flex-start',
-    marginRight: 280,
-    marginTop: 40,
-    fontWeight: 'bold',
-    color: "#808080",
-    fontSize: 14,
-  },
-  navPrev: {
-    marginLeft: 20,
-    marginTop: -5,
-  },
+
 })
